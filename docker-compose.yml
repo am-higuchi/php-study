@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:5.7
+    volumes:
+      - db:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=phpstudy
+      - MYSQL_USER=phpstudy
+      - MYSQL_PASSWORD=phpstudy
+
+  phpmyadmin:
+    depends_on:
+      - db
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: mysql
+    restart: always
+    ports:
+      - "11180:80"
+
+  php:
+    build: ./php
+    volumes:
+      - ./html:/var/www/html
+    ports:
+      - 11080:80
+    depends_on:
+      - db
+
+volumes:
+    db:
