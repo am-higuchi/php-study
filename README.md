@@ -11,5 +11,14 @@
 
 2. start.bat を実行 (ダブルクリック)
 
-3. ブラウザで http://localhost:11080 を表示
+### index.php を表示
+
+ブラウザで http://localhost:11080 を表示。
+
+### phpMyAdmin を表示
+
+ブラウザで http://localhost:11180 を表示。
+
+ユーザ名: root
+パスワード: root
 
